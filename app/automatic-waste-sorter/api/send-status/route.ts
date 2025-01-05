@@ -45,12 +45,12 @@ export async function POST(req: Request) {
 
     await db.query('UPDATE trash SET full = ? WHERE type = ?', [status == 'full' ? true : false, type]);
 
-    let bodyMessage = `sampah ${type}mu kebak!`;
+    const bodyMessage = `sampah ${type}mu kebak!`;
     const recipients = [
         { to: '+6281332145324', message: bodyMessage },
-        { to: '6281280295818', message: bodyMessage },
-        { to: '6285190044083', message: bodyMessage },
-        { to: '6281272733891', message: bodyMessage },
+        { to: '+6281280295818', message: bodyMessage },
+        { to: '+6285190044083', message: bodyMessage },
+        { to: '+6281272733891', message: bodyMessage },
     ];
 
     try {
