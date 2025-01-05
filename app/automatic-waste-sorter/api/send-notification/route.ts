@@ -16,10 +16,6 @@ export async function POST(req: Request) {
     const accountSid = process.env.TWILIO_ACCOUNT_SID;
     const authToken = process.env.TWILIO_AUTH_TOKEN;
     const fromWhatsAppNumber = process.env.TWILIO_WHATSAPP_NUMBER;
-    
-    console.log("Account SID:", accountSid); // Add this line
-    console.log("Auth Token:", authToken);  // Add this line
-    console.log("From WhatsApp Number:", fromWhatsAppNumber); // Add this line
   
     if (!accountSid || !authToken || !fromWhatsAppNumber) {
       return NextResponse.json({ error: 'Twilio credentials are not properly configured.' }, { status: 500 });
