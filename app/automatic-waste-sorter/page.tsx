@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Dashboard() {
     return (
         <main className="min-h-screen bg-gray-50">
-            <div className="container flex flex-col gap-y-10 md:gap-y-12 mx-auto px-8 sm:px-4 pt-10 md:pt-12 lg:pt-12">
+            <div className="container flex flex-col gap-y-10 md:gap-y-16 mx-auto px-8 sm:px-4 pt-10 md:pt-12 lg:pt-16">
                 <div className="flex flex-col md:flex-row gap-x-2 font-plus_jakarta_sans text-4xl md:text-5xl text-slate-600">
                     <h1 className="font-bold">Automatic</h1>
                     <h1 className="font-bold">Waste Sorter</h1>
