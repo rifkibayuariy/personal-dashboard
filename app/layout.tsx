@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-gray-200 ${plusJakartaSans.variable}`}>
+      <body className={`bg-gray-100 ${plusJakartaSans.variable}`}>
         {children}
       </body>
     </html>
