@@ -12,7 +12,6 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Missing required fields: to, message' }, { status: 400 });
     }
   
-    // Twilio credentials (store securely using environment variables)
     const accountSid = process.env.TWILIO_ACCOUNT_SID;
     const authToken = process.env.TWILIO_AUTH_TOKEN;
     const fromWhatsAppNumber = process.env.TWILIO_WHATSAPP_NUMBER;
