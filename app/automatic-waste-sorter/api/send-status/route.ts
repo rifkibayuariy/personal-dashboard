@@ -43,7 +43,7 @@ export async function POST(req: Request) {
         }, { status: 400 });
     }
 
-    const [result] = await db.query('UPDATE trash SET full = ? WHERE type = ?', [status == 'full' ? true : false, type]);
+    await db.query('UPDATE trash SET full = ? WHERE type = ?', [status == 'full' ? true : false, type]);
 
     var bodyMessage = `sampah ${type}mu kebak!`;
     const recipients = [
@@ -69,7 +69,7 @@ export async function POST(req: Request) {
     
         const responses = await Promise.all(sendMessagesPromises);
     
-        const results = await Promise.all(responses.map((response) => response.json()));
+        await Promise.all(responses.map((response) => response.json()));
       } catch (error) {
         console.error('Error sending messages:', error);
         return NextResponse.json({ error: 'Failed to send messages.' }, { status: 500 });

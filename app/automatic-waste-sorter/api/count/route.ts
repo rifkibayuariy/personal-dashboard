@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     
     if (type == "logam" || type == "non-logam") {
 		try {
-			const [result] = await db.query('UPDATE trash SET count = count + 1 WHERE type = ?', [type]);
+			await db.query('UPDATE trash SET count = count + 1 WHERE type = ?', [type]);
             await db.query('INSERT INTO trash_history (type) VALUES (?)', [type]);
 			return NextResponse.json({
 				success: true,
