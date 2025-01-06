@@ -14,12 +14,12 @@ export default function Dashboard() {
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			fetch('http://rifkibayuariyan.atwebpages.com/api/status')
+			fetch('http://192.168.100.234:3000/automatic-waste-sorter/api/status')
 			.then(response => response.json())
 			.then(data => setData(data));
 		}, 5000);
 			return () => clearInterval(interval);
-		}, []);
+	}, []);
 
 	return (
 		<main className="min-h-screen bg-gray-50">
