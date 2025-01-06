@@ -14,7 +14,7 @@ export default function Dashboard() {
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			fetch('https:/rifkibayuariyan.vercel.app/automatic-waste-sorter/api/status')
+			fetch('/automatic-waste-sorter/api/status')
 			.then(response => response.json())
 			.then(data => setData(data));
 		}, 5000);
