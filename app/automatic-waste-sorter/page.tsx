@@ -32,14 +32,14 @@ export default function Dashboard() {
 					<div className="col-span-2 md:col-span-3 h-14 md:h-44 grid grid-cols-2 grid-rows-1 md:grid-cols-1 md:grid-rows-2 gap-4 md:gap-6">
 						<div className={`${data.full_logam ? 'bg-red-500' : 'bg-white'} rounded-lg drop-shadow`}>
 							<div className={`h-full flex flex-row gap-4 md:gap-5 p-4 md:py-5 md:px-6 ${data.full_logam ? 'text-white' : 'text-slate-500'}`}>
-								<FontAwesomeIcon icon={faMagnet} className={`h-full ${data.full_logam ? '' : 'text-green-500'}`}/>
+								<FontAwesomeIcon icon={faMagnet} className={`h-full ${data.full_logam ? '' : 'text-green-500 md:text-slate-500'}`}/>
 								<span className="md:text-xl h-fit my-auto">Logam</span>
 									<span className={`p-2 px-4 font-bold h-fit my-auto hidden md:block ms-auto rounded-lg ${data.full_logam ? 'text-slate-500 bg-white' : 'text-white bg-green-500'}`}>{data.full_logam ? 'Full' : 'Ready'}</span>
 							</div>
 						</div>
 						<div className={`${data.full_non_logam ? 'bg-red-500' : 'bg-white'} rounded-lg drop-shadow`}>
 							<div className={`h-full flex flex-row gap-4 md:gap-5 p-4 md:py-5 md:px-6 ${data.full_non_logam ? 'text-white' : 'text-slate-500'}`}>
-								<FontAwesomeIcon icon={faBox} className={`h-full ${data.full_non_logam ? '' : 'text-green-500'}`}/>
+								<FontAwesomeIcon icon={faBox} className={`h-full ${data.full_non_logam ? '' : 'text-green-500 md:text-slate-500'}`}/>
 								<span className="md:text-xl h-fit my-auto">Non Logam</span>
 								<span className={`p-2 px-4 font-bold h-fit my-auto hidden md:block ms-auto rounded-lg ${data.full_non_logam ? 'text-slate-500 bg-white' : 'text-white bg-green-500'}`}>{data.full_non_logam ? 'Full' : 'Ready'}</span>
 							</div>
