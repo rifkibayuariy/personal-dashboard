@@ -6,6 +6,7 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
+    console.error(process.env.DB_USER);
     const { type }: { type?: string } = await req.json();
     
     if (type == "logam" || type == "non-logam") {
