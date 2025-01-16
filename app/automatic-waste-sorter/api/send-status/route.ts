@@ -45,7 +45,7 @@ export async function POST(req: Request) {
 
     await db.query('UPDATE trash SET full = ? WHERE type = ?', [status == 'full' ? true : false, type]);
 
-    const bodyMessage = `*Automatic Waste Sorter* - Sampah ${type} penuh!`;
+    const bodyMessage = `*Automatic Waste Sorter* - Tempat Sampah ${type} ${status == 'full' ? '*penuh*' : '*ready*'}!`;
     const recipients = [
         { to: '+6281332145324', message: bodyMessage },
         { to: '+6281280295818', message: bodyMessage },

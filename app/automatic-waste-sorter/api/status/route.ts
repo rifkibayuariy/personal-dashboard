@@ -7,13 +7,31 @@ type TrashResult = {
 	};  
 
 export async function GET() {
-    const [logamResults] = await db.execute('SELECT count, full FROM trash WHERE type = "logam"');
+    const [logamResults] = await db.execute(`SELECT 
+												COUNT(h.*) AS count, 
+												(SELECT t.full FROM trash t WHERE t.type = h.type) AS full 
+											FROM 
+												trash_history h 
+											WHERE 
+												h.type = 'logam' 
+												AND DATE(h.date) = CURRENT_DATE;
+											`);
+
 	const logamData = logamResults as TrashResult[];
 	const count_logam = logamData[0]?.count || 0;
 	const full_logam = logamData[0]?.full || false;
 
 	// Menjalankan query untuk non-logam
-	const [nonLogamResults] = await db.execute('SELECT count, full FROM trash WHERE type = "non-logam"');
+    const [nonLogamResults] = await db.execute(`SELECT 
+												COUNT(h.*) AS count, 
+												(SELECT t.full FROM trash t WHERE t.type = h.type) AS full 
+											FROM 
+												trash_history h 
+											WHERE 
+												h.type = 'non-logam' 
+												AND DATE(h.date) = CURRENT_DATE;
+											`);
+											
 	const nonLogamData = nonLogamResults as TrashResult[];
 	const count_non_logam = nonLogamData[0]?.count || 0;
 	const full_non_logam = nonLogamData[0]?.full || false;
