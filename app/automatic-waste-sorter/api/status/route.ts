@@ -8,7 +8,7 @@ type TrashResult = {
 
 export async function GET() {
     const [logamResults] = await db.execute(`SELECT 
-												COUNT(h.*) AS count, 
+												COUNT(*) AS 'count', 
 												(SELECT t.full FROM trash t WHERE t.type = h.type) AS full 
 											FROM 
 												trash_history h 
@@ -23,7 +23,7 @@ export async function GET() {
 
 	// Menjalankan query untuk non-logam
     const [nonLogamResults] = await db.execute(`SELECT 
-												COUNT(h.*) AS count, 
+												COUNT(*) AS 'count', 
 												(SELECT t.full FROM trash t WHERE t.type = h.type) AS full 
 											FROM 
 												trash_history h 
