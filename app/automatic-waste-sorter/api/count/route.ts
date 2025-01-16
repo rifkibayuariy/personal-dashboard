@@ -5,6 +5,7 @@ export async function GET() {
     return error_handler('GET');
 }
 
+// update
 export async function POST(req: Request) {
     const { type }: { type?: string } = await req.json();
     
